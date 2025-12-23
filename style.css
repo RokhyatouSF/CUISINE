@@ -1,85 +1,263 @@
+/* ========================================
+   IMPORTATION DE LA POLICE ET RESET GLOBAL
+   ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-:root {
-    --primary: #f95b06;
-    --secondary: #ffb300;
-    --accent: #ff6b35;
-    --dark: #0a1428;
-    --light: #fff3e0;
+/* Reset universel : supprime marges/paddings par défaut et utilise border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body { background: #fff; color: #333; line-height: 1.6; }
+/* ========================================
+   VARIABLES DE COULEURS (facile à modifier globalement)
+   ======================================== */
+:root {
+    --primary: #f95b06;      /* Orange principal */
+    --secondary: #ffb300;    /* Jaune/orange clair pour accents */
+    --accent: #ff6b35;       /* Orange plus vif pour hover/effets */
+    --dark: #0a1428;         /* Bleu très foncé (utilisé dans footer ou boutons) */
+    --light: #fff3e0;        /* Beige clair pour fonds doux */
+}
 
-/* Header */
-header { padding: 20px 5%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(249,91,6,0.1); }
+/* Style global du body */
+body {
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
 
-.container-header { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+/* ========================================
+   HEADER (commun aux 3 pages)
+   ======================================== */
+header {
+    padding: 20px 5%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);           /* Effet verre dépoli */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(249,91,6,0.1);
+}
 
-.logo img { height: 50px; transition: transform 0.3s; }
+.container-header {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s;
+}
 .logo img:hover { transform: rotate(10deg); }
 
-nav ul { display: flex; gap: 30px; list-style: none; }
-nav ul li a { color: #333; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; }
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
 nav ul li a:hover { color: var(--primary); }
-nav ul li a:hover::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 3px; background: var(--secondary); border-radius: 3px; }
+nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 3px;
+}
 
-.auth-buttons .btn { padding: 10px 24px; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+.auth-buttons .btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
 .auth-buttons .login { color: #333; border: 2px solid #eee; }
 .auth-buttons .signup { background: var(--primary); color: #fff; margin-left: 15px; }
 
-/* Hero */
+/* ========================================
+   PAGE D'ACCUEIL (index.html)
+   ======================================== */
+
+/* Section Hero (accueil) */
 .section-1 {
     min-height: 100vh;
-    background: linear-gradient(rgba(249,91,6,0.75), rgba(249,91,6,0.6)), url("images/banner-head-accueil.jpg") center/cover no-repeat;
-    display: flex; align-items: center; justify-content: space-around; color: #fff; position: relative;
+    background: linear-gradient(rgba(249,91,6,0.75), rgba(249,91,6,0.6)),
+                url("images/banner-head-accueil.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    position: relative;
 }
 
-.section-1::before { content: ''; position: absolute; inset: 0; background: url('https://pattern.monster/african/') repeat; opacity: 0.08; }
+/* Motif africain subtil en overlay */
+.section-1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://pattern.monster/african/') repeat;
+    opacity: 0.08;
+}
 
 .gauche h2 { font-size: 60px; animation: fadeIn 1.5s; }
 .gauche h2 span { color: var(--secondary); }
 .gauche p { font-size: 20px; max-width: 550px; margin-top: 20px; }
 
-.droite img { width: 450px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); transition: transform 0.5s; }
+.droite img {
+    width: 450px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    transition: transform 0.5s;
+}
 .droite img:hover { transform: scale(1.05); }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-/* Stats */
-.stats-section { background: var(--light); padding: 80px 5%; text-align: center; }
-.stats-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1400px; margin: auto; }
-.stat-card { background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); min-width: 220px; transition: all 0.4s; }
-.stat-card:hover { transform: translateY(-15px) scale(1.05); background: linear-gradient(var(--primary), var(--accent)); color: #fff; }
+/* Section Statistiques */
+.stats-section {
+    background: var(--light);
+    padding: 80px 5%;
+    text-align: center;
+}
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: auto;
+}
+.stat-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    min-width: 220px;
+    transition: all 0.4s;
+}
+.stat-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    background: linear-gradient(var(--primary), var(--accent));
+    color: #fff;
+}
 .stat-card h3 { font-size: 48px; margin-bottom: 10px; }
 
-/* Services */
-.services { padding: 100px 5%; text-align: center; background: #fff; }
+/* Section Services (accueil) */
+.services {
+    padding: 100px 5%;
+    text-align: center;
+    background: #fff;
+}
 .services h2 { font-size: 42px; margin-bottom: 20px; }
 .services .subtitle { font-size: 18px; color: #666; margin-bottom: 60px; }
-.services-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
-.service-card { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 320px; transition: transform 0.4s; }
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.service-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    width: 320px;
+    transition: transform 0.4s;
+}
 .service-card:hover { transform: translateY(-15px); }
 .service-card h3 { color: var(--primary); margin-bottom: 20px; }
 .service-card a { color: var(--primary); font-weight: 600; }
 
-/* Map */
-.map-section { padding: 100px 5%; text-align: center; background: var(--light); }
-.map-section h2 { font-size: 36px; margin-bottom: 40px; }
-#map { height: 500px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+/* Section Localisation / Carte (accueil) */
+.localisation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 3%;
+    background-color: #FFF3E0;
+    padding: 3%;
+}
+iframe {
+    border-radius: 10px;
+    width: 1000px;
+    height: 400px;
+}
 
-/* Reviews Carousel */
-.reviews { padding: 120px 5%; text-align: center; background: linear-gradient(#fff, var(--light)); position: relative; }
+/* Section Avis Clients (reviews) */
+.reviews {
+    padding: 120px 5%;
+    text-align: center;
+    background: linear-gradient(#fff, var(--light));
+    position: relative;
+}
 .reviews h2 { font-size: 42px; margin-bottom: 80px; }
 
-.reviews-carousel { position: relative; max-width: 1400px; margin: auto; overflow: hidden; border-radius: 30px; }
-.reviews-grid { display: flex; gap: 40px; transition: transform 0.6s ease; }
+.reviews-carousel {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.reviews-grid {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.6s ease;
+}
 
-.review-card { background: #fff; padding: 50px 30px; min-width: 360px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); text-align: center; position: relative; overflow: hidden; }
-.review-card::before { content: '“'; font-size: 180px; opacity: 0.08; position: absolute; top: -40px; left: 20px; color: var(--secondary); }
+.review-card {
+    background: #fff;
+    padding: 50px 30px;
+    min-width: 360px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.review-card::before {
+    content: '“';
+    font-size: 180px;
+    opacity: 0.08;
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    color: var(--secondary);
+}
 
-.avatar { width: 70px; height: 70px; border-radius: 50%; color: #fff; font-weight: bold; font-size: 28px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
 .review-card:nth-child(1) .avatar { background: #d3d3d3; }
 .review-card:nth-child(2) .avatar { background: #ff5722; }
 .review-card:nth-child(3) .avatar { background: #ffb300; }
@@ -88,37 +266,369 @@ nav ul li a:hover::after { content: ''; position: absolute; bottom: -8px; left: 
 .stars { color: var(--secondary); font-size: 24px; margin: 15px 0; letter-spacing: 5px; }
 .review-card p { font-style: italic; color: #555; }
 
-.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(249,91,6,0.9); color: #fff; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 24px; }
+/* Boutons flèches du carousel avis */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(249,91,6,0.9);
+    color: #fff;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+}
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* CTA */
+/* Section CTA (Call to Action) */
 .section-6 {
-    padding: 160px 5%; text-align: center; color: #fff;
-    background: linear-gradient(rgba(10,20,40,0.85), rgba(10,20,40,0.85)), url("images/banner-head-accueil.jpg") center/cover fixed;
+    padding: 160px 5%;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(rgba(10,20,40,0.85), rgba(10,20,40,0.85)),
+                url("images/banner-head-accueil.jpg") center/cover fixed;
     position: relative;
 }
 
-.cta-icon { font-size: 90px; color: var(--secondary); margin-bottom: 20px; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+.cta-icon {
+    font-size: 90px;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
 
 .cta-content h3 { font-size: 40px; margin-bottom: 10px; }
 .cta-content h2 { font-size: 56px; margin-bottom: 30px; }
 .cta-content p { font-size: 20px; max-width: 800px; margin: 0 auto 50px; opacity: 0.9; }
+.cta-content:hover{
+    transform: scale(1.2);
+}
+/* .cta-btn {
+    background: var(--secondary);
+    color: #000;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(255,179,0,0.4);
+    transition: all 0.4s;
+    animation: bounce 2s infinite;
+}
+.cta-btn:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(255,179,0,0.6);
+}
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } } */
 
-.cta-btn { background: var(--secondary); color: #000; padding: 20px 60px; border: none; border-radius: 60px; font-size: 24px; font-weight: 600; cursor: pointer; box-shadow: 0 15px 40px rgba(255,179,0,0.4); transition: all 0.4s; animation: bounce 2s infinite; }
-.cta-btn:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(255,179,0,0.6); }
-@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+/* ========================================
+   PAGE TRAITEURS (traiteurs.html)
+   ======================================== */
 
-/* --------------------------------------------------------------------- 
-Footer
---------------------------------------------------------------------- */
+/* Hero spécifique traiteurs */
+.section1-traiteur {
+    min-height: 70vh;
+    background: linear-gradient(rgba(23, 23, 23, 0.75), rgba(0, 0, 0, 0.6)),
+                url("images/traiteur.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    position: relative;
+}
+
+/* En-tête texte traiteurs */
+.traiteurs-header {
+    background: var(--light);
+    padding: 100px 5%;
+    text-align: center;
+}
+.traiteurs-header-content h1 { font-size: 48px; margin-bottom: 20px; }
+.traiteurs-header-content p { font-size: 20px; color: #666; max-width: 800px; margin: 0 auto; }
+
+/* Filtres traiteurs */
+.traiteurs-list {
+    padding: 60px 5%;
+    background: #fdfaf5;
+}
+.filters {
+    display: flex;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+.filters h3 { font-size: 28px; margin-right: 20px; min-width: 100px; }
+.filter-group { display: flex; flex-direction: column; gap: 8px; }
+.filter-group label { font-weight: 500; color: #555; }
+.filter-group select {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 16px;
+    min-width: 220px;
+}
+.filter-actions { display: flex; gap: 15px; }
+.fa-filter{margin-right: 6px;}
+.fa-rotate{margin-right: 6px;}
+.btn-filter { background: var(--primary); color: #fff; padding: 12px 30px; border: none; border-radius: 30px; font-weight: 600; cursor: pointer; }
+.btn-reset { background: transparent; color: #555; padding: 12px 20px; border: 1px solid #ddd; border-radius: 30px; cursor: pointer; }
+
+/* Grille des cartes traiteurs */
+.traiteurs-grid {
+    display: grid;
+    grid-template-columns:1;
+    gap:10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 900px;
+    height: 400px;
+    line-height: 1.6rem;
+    top: 0;
+}
+
+.traiteur-card {
+    overflow: hidden;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    display: flex;
+    transition: transform 0.3s;
+}
+
+.traiteur-image { position: relative; width: 45%; flex-shrink: 0; }
+.traiteur-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Badge Vérifié (vert comme sur l'image) */
+.verified-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #28a745;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+.verified-badge i { font-size: 16px; }
+
+.traiteur-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex: 1; */
+    font-size: 12px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.years { color: var(--primary); font-weight: 600; }
+/* .traiteur-info h4 { font-size: 22px; } */
+.specialites, .phone { color: #666;  }
+.rating {color: var(--secondary); font-weight: 600;  }
+.years-rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.btn-profile {
+    background: var(--dark);
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 30px;
+    align-self: flex-end;
+    cursor: pointer;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+/* Section "Devenir traiteur" en bas de page traiteurs */
+.section3-traiteur {
+    min-height: 40vh;
+    padding-top: 60px;
+    color: #d3d3d3;
+    background: linear-gradient(rgba(136, 74, 41, 0.4), rgba(249,91,6,0.6)),
+                url("images/banner-head-accueil.jpg") center/cover no-repeat;
+    z-index: 40;
+    text-align: center;
+}
+.section3-traiteur h3 { font-size: 36px; margin-bottom: 20px; }
+.section3-traiteur p { color: #d3d3d3; font-size: 20px; margin-bottom: 30px; font-weight: 900; }
+.section3-traiteur button {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 2px solid #ff5722;
+    background-color: #d3d3d3;
+    margin-bottom: 20px;
+}
+.section3-traiteur button:hover {
+    transform: scale(1.2);
+}
+button:hover{
+    transform: scale(1.2);
+}
+.section3-traiteur button a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    
+}
+
+/* ========================================
+   PAGE FORMULAIRE INSCRIPTION TRAITEUR
+   ======================================== */
+.form-traiteur {
+    background: #fdfaf5;
+    min-height: 100vh;
+    padding: 60px 5%;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.form-container h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.form-container > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+.form-container p:hover {
+    transform: scale(1.2);
+}
+.form-container h1:hover {
+    transform: scale(1.2);
+}
+.form-section { margin-bottom: 50px; }
+.form-section h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+.form-group { display: flex; flex-direction: column; }
+.form-group.full-width { grid-column: 1 / -1; }
+
+.form-group label { font-weight: 600; margin-bottom: 10px; color: #444; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: border 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+}
+.form-group input[readonly] { background: #e9ecef; color: #666; }
+
+/* Checkboxes services proposés */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.checkbox-label input { margin-right: 10px; width: 18px; height: 18px; }
+
+/* Zone upload photo */
+.upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    background: #f9f9f9;
+}
+.upload-area p { color: #666; margin-bottom: 15px; }
+.upload-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+}
+#photo { display: none; }
+.file-info { display: block; margin: 15px 0; color: #999; font-style: italic; }
+.upload-note { font-size: 12px; color: #888; margin-top: 15px; }
+input[type="file"]::file-selector-button{
+    color: #f95b06;
+}
+
+/* Bouton final du formulaire */
+.form-actions { text-align: center; margin-top: 40px; }
+.submit-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(249,91,6,0.3);
+    transition: all 0.3s;
+}
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(249,91,6,0.4);
+}
+
+/* ========================================
+   FOOTER (commun aux 3 pages)
+   ======================================== */
 footer {
-    background-color: black;    
+    background-color: black;
     color: #ffffff;
     padding: 60px 8% 30px;
 }
-
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -127,110 +637,39 @@ footer {
     max-width: 1400px;
     margin: 0 auto;
 }
-
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-column h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 12px;
-}
-
+.footer-column { flex: 1; min-width: 200px; }
+.footer-column h3 { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #ffffff; }
+.footer-column ul { list-style: none; padding: 0; margin: 0; }
+.footer-column ul li { margin-bottom: 12px; }
 .footer-column ul li a {
-    color: #b0b0b0;              
+    color: #b0b0b0;
     text-decoration: none;
     font-size: 15px;
     transition: color 0.3s ease;
 }
+.footer-column ul li a:hover { color: #ffffff; }
 
-.footer-column ul li a:hover {
-    color: #ffffff;            
-}
+.footer-column.contact p { color: #b0b0b0; font-size: 15px; margin-bottom: 10px; line-height: 1.6; }
+.company-name { font-weight: 600; font-size: 18px; color: #ffffff; margin-bottom: 15px !important; }
 
-/* Section Contact spéciale */
-.footer-column.contact p {
-    color: #b0b0b0;
-    font-size: 15px;
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+.social-icons a img { width: 32px; height: 32px; transition: opacity 0.3s ease; }
+.social-icons a:hover img { opacity: 0.7; }
 
-.company-name {
-    font-weight: 600;
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 15px !important;
-}
+.footer-bottom { text-align: center; margin-top: 50px; padding-top: 30px; }
+.footer-bottom hr { border: none; border-top: 1px solid #334155; margin-bottom: 20px; }
+.footer-bottom p { color: #778899; font-size: 14px; }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-icons a img {
-    width: 32px;
-    height: 32px; 
-    transition: opacity 0.3s ease;
-}
-
-.social-icons a:hover img {
-    opacity: 0.7;
-}
-
-/* Bas du footer : ligne + copyright */
-.footer-bottom {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 30px;
-}
-
-.footer-bottom hr {
-    border: none;
-    border-top: 1px solid #334155;
-    margin-bottom: 20px;
-}
-
-.footer-bottom p {
-    color: #778899;
-    font-size: 14px;
-}
-
-/* Responsive pour mobile */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .footer-column {
-        text-align: center;
-    }
-    
-    .social-icons {
-        justify-content: center;
-    }
-}
-
+/* ========================================
+   RESPONSIVE (mobile & tablette)
+   ======================================== */
 @media (max-width: 1024px) {
     .section-1 { flex-direction: column; text-align: center; padding: 100px 5%; }
     .droite img { margin-top: 50px; width: 80%; max-width: 400px; }
     .reviews-grid { gap: 30px; }
     .review-card { min-width: 320px; }
+    .traiteur-card { flex-direction: column; }
+    .traiteur-image { width: 100%; height: 250px; }
 }
 
 @media (max-width: 768px) {
@@ -238,4 +677,10 @@ footer {
     .gauche h2 { font-size: 42px; }
     .cta-content h2 { font-size: 40px; }
     .footer-container { flex-direction: column; text-align: center; }
+    .social-icons { justify-content: center; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-container { padding: 30px; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+    .filters { flex-direction: column; align-items: flex-start; }
+    .filter-group select { min-width: 100%; }
 }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Buffet - Cuisine Sénégalaise-Partie Traiteurs</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/bb9f417905.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <div class="logo">
+                <img src="../images/logo.png" alt="Star Buffet Logo">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="#">Restaurants</a></li>
+                    <li><a href="#">Cours de cuisine</a></li>
+                    <li><a href="traiteurs.html">Traiteurs</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="#" class="btn login">Connexion</a>
+                <a href="#" class="btn signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="section1-traiteur" style="height: 0vh;">
+            <div class="cta-content">
+                <h3>Nos Traiteurs</h3>
+                <p>Rejoignez notre plateforme et developpez votre activité de traiteur</p>
+
+            </div>
+        </section>
+        <section class="form-traiteur">
+            <div class="form-container">
+                <h1>Devenir traiteur partenaire</h1>
+                <p>Remplissez le formulaire pour rejoindre notre réseau de traiteurs professionnels.</p>
+
+                <form>
+                    <!-- Informations de base -->
+                    <div class="form-section">
+                        <h2>Informations de base</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nom complet</label>
+                                <input type="text" placeholder="Ex: Moussa Fall" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="Bintadmin@gmail.com" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmer le mot de passe</label>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informations professionnelles -->
+                    <div class="form-section">
+                        <h2>Informations professionnelles</h2>
+                        <div class="form-group full-width">
+                            <label>Catégorie</label>
+                            <select required>
+                                <option>Sélectionnez une catégorie</option>
+                                <option>Traiteur événementiel</option>
+                                <option>Traiteur mariage</option>
+                                <option>Traiteur entreprise</option>
+                                <option>Traiteur privé</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Années d'expérience</label>
+                            <input type="number" placeholder="Ex: 5" min="0" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Description</label>
+                            <textarea rows="5" placeholder="Présentez votre activité, vos spécialités..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Services proposés</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Mariage
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Anniversaire
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Événements d'entreprise
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Cocktails
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Buffets
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Dîners privés
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Cuisine sur mesure
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informations de contact -->
+                    <div class="form-section">
+                        <h2>Informations de contact</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Téléphone</label>
+                                <input type="tel" placeholder="+221 77 000 00 00" required>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Téléphone</label>
+                                    <input type="tel" placeholder="+221 77 000 00 00" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Photo de profil -->
+                        <div class="form-section">
+
+                            <h2>Photo de profil</h2>
+                            <!-- <div class="upload-area">
+                            <p>Photo</p>
+                            <input type="file" id="photo" accept=".jpg,.jpeg,.png" required>
+                            <label for="photo" class="upload-btn">Choisir un fichier</label>
+                            <span class="file-info">Aucun fichier choisi</span>
+                            <p class="upload-note">Formats acceptés : JPG, JPEG, PNG. Taille maximale : 10MB</p>
+                        </div> -->
+                            <!-- <div class="form-grid">
+                            <div class="form-group">
+                                <label>Téléphone</label>
+                                <input type="tel" placeholder="+221 77 000 00 00" required>
+                            </div> -->
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="photoo">Photo</label>
+                                    <input type="file" id="photoo">
+                                    <p class="upload-note">Formats acceptés : JPG, JPEG, PNG. Taille maximale : 10MB</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">S'inscrire</button>
+                        </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Qui sommes-nous</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Traiteurs</a></li>
+                    <li><a href="#">Restaurants</a></li>
+                    <li><a href="#">Cours de cuisine</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Espace Pro</h3>
+                <ul>
+                    <li><a href="#">Devenir partenaire</a></li>
+                    <li><a href="#">Connexion</a></li>
+                    <li><a href="#">FAQ Professionnels</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact">
+                <h3>Contact</h3>
+                <p class="company-name">Star Buffet</p>
+                <p>Dakar, Sénégal</p>
+                <p>Tél : +221 78 445 11 01</p>
+                <p>Email : contact@starbuff.com</p>
+
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><img src="../images/facebook.png" alt=""></a>
+                    <a href="#" aria-label="Instagram"><img src="../images/instagram.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <hr>
+            <p>&copy; 2025 Star Buffet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

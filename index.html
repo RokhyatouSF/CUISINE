@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Buffet - Cuisine Sénégalaise</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-          integrity="sha512-Avb2QiuDEEvB4bZJZq1IlLC2PgBq5nUjM=" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bb9f417905.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container-header">
@@ -21,7 +23,7 @@
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">Restaurants</a></li>
                     <li><a href="#">Cours de cuisine</a></li>
-                    <li><a href="#">Traiteurs</a></li>
+                    <li><a href="pages/traiteurs.html">Traiteurs</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -37,7 +39,8 @@
         <section class="section-1">
             <div class="gauche">
                 <h2>Découvrez la <span>Cuisine <br>Sénégalaise</span></h2>
-                <p>Explorez les saveurs authentiques du Sénégal. Du Thiéboudiène aux Alloco, apprenez les secrets de la cuisine sénégalaise avec nos chefs experts.</p>
+                <p>Explorez les saveurs authentiques du Sénégal. Du Thiéboudiène aux Alloco, apprenez les secrets de la
+                    cuisine sénégalaise avec nos chefs experts.</p>
             </div>
             <div class="droite">
                 <img src="images/thieboudieunerouge.JPG" alt="Thiéboudiène">
@@ -90,9 +93,14 @@
             </div>
         </section>
 
-        <section class="map-section">
-            <h2>Trouver les restaurants les plus proches de vous ?</h2>
-            <div id="map"></div>
+        <section class="localisation">
+            <h1>Trouvez les restaurants les plus proche de vous
+                <h1 />
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-17.6%2C14.6%2C-17.3%2C14.8&layer=mapnik&marker=14.7167,-17.4677"
+                    allowfullscreen loading="lazy">
+                </iframe>
+
         </section>
 
         <section class="reviews">
@@ -196,46 +204,6 @@
         </div>
     </footer>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <script>
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-
-                const map = L.map('map').setView([lat, lon], 13);
-
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; OpenStreetMap'
-                }).addTo(map);
-
-                L.marker([lat, lon]).addTo(map)
-                    .bindPopup("Vous êtes ici")
-                    .openPopup();
-            });
-        } else {
-            alert("La géolocalisation n'est pas supportée");
-        }
-
-        // Carousel simple pour reviews
-        const grid = document.querySelector('.reviews-grid');
-        const prev = document.querySelector('.prev');
-        const next = document.querySelector('.next');
-        let scrollAmount = 0;
-
-        next.addEventListener('click', () => {
-            scrollAmount += 340;
-            if (scrollAmount >= grid.scrollWidth - grid.clientWidth) scrollAmount = 0;
-            grid.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-
-        prev.addEventListener('click', () => {
-            scrollAmount -= 340;
-            if (scrollAmount < 0) scrollAmount = grid.scrollWidth - grid.clientWidth;
-            grid.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-    </script>
 </body>
+
 </html>
