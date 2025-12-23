@@ -395,7 +395,7 @@ iframe {
 /* Grille des cartes traiteurs */
 .traiteurs-grid {
     display: grid;
-    grid-template-columns:1;
+    grid-template-columns:1fr;
     gap:10px;
     margin-left: 100px;
     margin-right: 100px;
@@ -493,7 +493,8 @@ iframe {
 }
 
 a:hover{
-    transform: scale(1.2);
+    transform: scale(1.2) ;
+    transition: 0.3s;
     cursor: pointer;
 }
 button:hover{
