@@ -97,8 +97,9 @@ nav ul li a:hover::after {
 /* Section Hero (accueil) */
 .section-1 {
     min-height: 100vh;
-    background: linear-gradient(rgba(249,91,6,0.75), rgba(249,91,6,0.6)),
-                url("images/banner-head-accueil.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+               #f95b06 url("images/banner-head-accueil.jpg") center/cover no-repeat;
+    background-blend-mode: normal, multiply;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -119,13 +120,24 @@ nav ul li a:hover::after {
 .gauche h2 span { color: var(--secondary); }
 .gauche p { font-size: 20px; max-width: 550px; margin-top: 20px; }
 
+.droite p {
+    position: absolute;
+    z-index: 3;
+    /* top: 8px; */
+    right: 56px;
+    background-color: rgba(255, 255, 255, 0.785);
+    border-radius: 13px;
+    color: #f95b06;
+
+}
 .droite img {
     width: 450px;
     border-radius: 30px;
     box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-    transition: transform 0.5s;
+    /* position: relative; */
 }
-.droite img:hover { transform: scale(1.05); }
+
+.droite img:hover { transform: scale(1.1); }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(40px); }
