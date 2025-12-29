@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants - Star Buffet</title>
+    <script src="https://kit.fontawesome.com/bb9f417905.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(to bottom, #914010, #903F10);
+            color: white;
+            padding: 20px 0;
+            flex-shrink: 0;
+            height: 600px;
+            position: fixed;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s;
+            margin-left: 3px;
+        }
+
+        .logo img:hover {
+            transform: rotate(10deg);
+        }
+
+        nav {
+            height: 100px;
+        }
+
+        .menu-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            transition: background 0.3s;
+            cursor: pointer;
+
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-item i {
+            margin-right: 12px;
+            font-style: normal;
+        }
+
+        .bottom-menu {
+            margin-top: 280px;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 30px;
+            margin-left: 250px;
+        }
+
+        hr .separateur {
+            /* background-color: #f91616; */
+            border-top: 3px solid #e67e22
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .btn-add {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: #d35400;
+        }
+
+        .filter-bar {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .btn-filter {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #f1f1f1;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .restaurant-row {
+            transition: background 0.2s;
+        }
+
+        .restaurant-row:hover {
+            background-color: #fdf9f5;
+        }
+
+        .logo-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status.pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status.verified {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .actions a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 15px;
+        }
+
+        .actions a:hover {
+            text-decoration: underline;
+        }
+
+        .actions a.delete {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Star Buffet Logo">
+        </div>
+        <nav class="menu">
+            <div class="menu-item">
+                <i class="fas fa-home"></i>
+                Tableau de bord
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-graduation-cap"></i>
+                Cours de cuisine
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-folder-open"></i>
+                Catégories
+            </div>
+            <div class="menu-item active">
+                <i class="fas fa-utensils"></i>
+                Restaurants
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-users"></i>
+                Traiteurs
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-star"></i>
+                Avis
+            </div>
+        </nav>
+
+        <div class="bottom-menu">
+            <hr class="separateur">
+            <div class="menu-item">
+                <i class="fas fa-house-user"></i>
+                Retour à l'accueil
+            </div>
+            <hr class="separateur">
+            <div class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                Déconnexion
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+        <header>
+            <h1>Restaurants</h1>
+            <button class="btn-add">Ajouter un restaurant</button>
+        </header>
+
+        <p>Gérez les restaurants de la plateforme.</p>
+
+        <div class="filter-bar">
+            <select>
+                <option>Toutes les zones</option>
+                <option>Plateau</option>
+                <option>Médina</option>
+                <option>Almadies</option>
+                <!-- ajouter d'autres zones si besoin -->
+            </select>
+            <button class="btn-filter">Filtrer</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>NOM</th>
+                    <th>EMAIL</th>
+                    <th>ZONE</th>
+                    <th>STATUT</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="restaurant-row">
+                    <td class="logo-cell"><img src="https://via.placeholder.com/40" alt="" class="logo-img"></td>
+                    <td>Le Djoloff</td>
+                    <td>contact@ledjoloff.sn</td>
+                    <td>Plateau</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell"><img src="https://via.placeholder.com/40" alt="" class="logo-img"></td>
+                    <td>Chez Loutcha</td>
+                    <td>contact@chezloutcha.sn</td>
+                    <td>Plateau</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell">
+                        <div class="logo-img">No logo</div>
+                    </td>
+                    <td>Le Thioossane</td>
+                    <td>contact@lethioossane.sn</td>
+                    <td>Médina</td>
+                    <td><span class="status verified">Vérifié</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell">
+                        <div class="logo-img">No logo</div>
+                    </td>
+                    <td>Sushi Dakar</td>
+                    <td>contact@sushidakar.sn</td>
+                    <td>Almadies</td>
+                    <td><span class="status verified">Vérifié</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell"><img src="https://via.placeholder.com/40/8B4513/ffffff" alt=""
+                            class="logo-img"></td>
+                    <td>Amanda Larson</td>
+                    <td>vedevj@mailinator.com</td>
+                    <td>Aut dignissimos iure</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell"><img src="https://via.placeholder.com/40" alt="" class="logo-img"></td>
+                    <td>Mara Knight</td>
+                    <td>tofynukaz@mailinator.com</td>
+                    <td>Possimus quis mollis</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell">
+                        <div class="logo-img">No logo</div>
+                    </td>
+                    <td>Joan Salinas</td>
+                    <td>txpithef@mailinator.com</td>
+                    <td>Amet voluptatem ips</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+                <tr class="restaurant-row">
+                    <td class="logo-cell"><img src="https://via.placeholder.com/40/228B22/ffffff" alt=""
+                            class="logo-img"></td>
+                    <td>Serena Thornton</td>
+                    <td>mihonilam@mailinator.com</td>
+                    <td>Reprehenderit volupt</td>
+                    <td><span class="status pending">En attente</span></td>
+                    <td class="actions"><a href="#">Modifier</a> <a href="#" class="delete">Supprimer</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

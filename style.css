@@ -640,6 +640,142 @@ input[type="file"]::file-selector-button{
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(249,91,6,0.4);
 }
+/* -------------------------------------------------- */
+.section-1-detail {
+    position: relative;
+    width: 100%;
+}
+.hero-image {
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+    display: block;
+}
+.rating {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Contenu principal */
+.section-2-detail {
+    padding: 60px 0;
+    background: #fffdf5;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Colonne gauche */
+.left-column h2 {
+    margin: 40px 0 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+.left-column p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.specialites {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.tag {
+    background: #f0e6d2;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.services {
+    list-style: none;
+}
+.services li {
+    margin: 18px 0;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+}
+.check {
+    color: #28a745;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* Sidebar droite */
+.right-column .sidebar {
+    background: #fffdf0;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+.sidebar h3 {
+    margin: 35px 0 15px;
+    font-size: 1.5rem;
+    color: #333;
+}
+.sidebar p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+.sidebar strong {
+    color: #333;
+}
+.langues {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.tag-lang {
+    background: #e9ecef;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+}
+.btn-contact {
+    display: block;
+    text-align: center;
+    background: #6f42c1; /* violet exact */
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    transition: background 0.3s;
+}
+.btn-contact:hover {
+    background: #5a32a3;
+}
+
+/* Responsive (comme dans l'image : sidebar passe en dessous sur mobile) */
+@media (max-width: 968px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .hero-image { height: 50vh; }
+    .rating { left: 20px; bottom: 20px; font-size: 1rem; }
+}
+
+/* --------------------------------------------------------- */
 
 /* ========================================
    FOOTER (commun aux 3 pages)
@@ -704,3 +840,4 @@ footer {
     .filters { flex-direction: column; align-items: flex-start; }
     .filter-group select { min-width: 100%; }
 }
+
