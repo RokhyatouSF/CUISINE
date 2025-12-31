@@ -820,6 +820,23 @@ footer {
 .footer-bottom hr { border: none; border-top: 1px solid #334155; margin-bottom: 20px; }
 .footer-bottom p { color: #778899; font-size: 14px; }
 
+
+/* Hamburger (caché en desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+}
+    .traiteur-card { display: flex;
+        flex-direction: row; }
+
 /* ========================================
    RESPONSIVE (mobile & tablette)
    ======================================== */
@@ -830,25 +847,37 @@ footer {
     .review-card { min-width: 320px; }
     .traiteur-card { flex-direction: column; }
     .traiteur-image { width: 100%; height: 250px; }
-}
-
-@media (max-width: 768px) {
-    
-    nav ul { display: flex;flex-direction: column; gap: 15px; font-size: 14px; }
-    .gauche h2 { font-size: 42px; }
-    .droite img{ width: 300px}
     .droite p {
     position: absolute;
     z-index: 3;
     /* margin-top: 8px;
     right: 56px; */
-    top: 65px;
-    right: 10px;
+    top: 60px;
+    right: 40px;
     background-color: rgba(255, 255, 255, 0.785);
     border-radius: 13px;
     color: #f95b06;
 
 }
+}
+
+@media (max-width: 768px) {
+    
+    nav ul {
+        display: none; /* on cache le menu */
+    }
+    .auth-buttons {
+        display: none; /* on cache les boutons */
+    }
+
+    nav ul.active {
+        display: flex; /* affiché quand hamburger cliqué */
+    }
+
+    .hamburger {
+        display: flex; /* visible en mobile */
+    }
+
     .cta-content h2 { font-size: 40px; }
     .footer-container { flex-direction: column; text-align: center; }
     .social-icons { justify-content: center; }
@@ -860,15 +889,6 @@ footer {
     .section-1 {
     height: auto;
 }
-    .auth-buttons .btn {
-    padding: 0;
-    border-radius: none;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
-}
-.auth-buttons .login { color: #f95b06; border:none; margin-left: 13px; }
-.auth-buttons .signup { background: transparent; color: #f95b06;}
 
 .traiteurs-list {
     height: 1370px;
