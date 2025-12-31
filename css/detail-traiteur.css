@@ -87,6 +87,7 @@ nav ul li a:hover::after {
     color: #fff;
     margin-left: 15px;
 }
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -99,6 +100,7 @@ nav ul li a:hover::after {
     height: 3px;
     background-color: #333;
 }
+
 /* Hero */
 /* Hero */
 .hero {
@@ -472,16 +474,20 @@ footer {
 
 @media (max-width: 768px) {
     nav ul {
-        display: none; /* on cache le menu */
-    }
-    .auth-buttons {
-        display: none; /* on cache les boutons */
+        display: none;
+        /* on cache le menu */
     }
 
-    
+    .auth-buttons {
+        display: none;
+        /* on cache les boutons */
+    }
+
+
 
     .hamburger {
-        display: flex; /* visible en mobile */
+        display: flex;
+        /* visible en mobile */
     }
 
     .gauche h2 {
