@@ -1,0 +1,495 @@
+/* ========================================
+   IMPORTATION DE LA POLICE ET RESET GLOBAL
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset universel : supprime marges/paddings par défaut et utilise border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ========================================
+   VARIABLES DE COULEURS (facile à modifier globalement)
+   ======================================== */
+:root {
+    --primary: #f95b06;
+    /* Orange principal */
+    --secondary: #ffb300;
+    /* Jaune/orange clair pour accents */
+    --accent: #ff6b35;
+    /* Orange plus vif pour hover/effets */
+    --dark: #0a1428;
+    /* Bleu très foncé (utilisé dans footer ou boutons) */
+    --light: #fff3e0;
+    /* Beige clair pour fonds doux */
+}
+
+/* Style global du body */
+body {
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ========================================
+   HEADER (commun aux 3 pages)
+   ======================================== */
+header {
+    padding: 20px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    /* Effet verre dépoli */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(249, 91, 6, 0.1);
+}
+
+.container-header {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: rotate(10deg);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 3px;
+}
+
+.auth-buttons .btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.auth-buttons .login {
+    color: #333;
+    border: 2px solid #eee;
+}
+
+.auth-buttons .signup {
+    background: var(--primary);
+    color: #fff;
+    margin-left: 15px;
+}
+
+
+/* ------------------------------------------------------ */
+section.contact-form {
+    background-color: #FEFBEA;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 3.95%;
+    padding-right: 3.95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+
+    width: 95%;
+}
+
+form .form-container {
+    background-color: #ffffff;
+    margin-top: 10%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+form .form-container .prenom-nom {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+label {
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    max-width: 84px;
+
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    background-color: #f95b06;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+.contact-info .card {
+    background-color: #FEFBEA;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 15px;
+}
+
+.card .icone-info {
+    border-radius: 50%;
+    background-color: #f95b06;
+    color: white;
+    padding: 1%;
+}
+
+/* ========================================
+   FOOTER (commun aux 3 pages)
+   ======================================== */
+footer {
+    background-color: black;
+    color: #ffffff;
+    padding: 60px 8% 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-column.contact p {
+    color: #b0b0b0;
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.company-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 15px !important;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.footer-bottom hr {
+    border: none;
+    border-top: 1px solid #334155;
+    margin-bottom: 20px;
+}
+
+.footer-bottom p {
+    color: #778899;
+    font-size: 14px;
+}
+
+/* ========================================
+   RESPONSIVE (mobile & tablette)
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .gauche h2 {
+        font-size: 42px;
+    }
+
+    .droite img {
+        width: 300px
+    }
+
+    .droite p {
+        position: absolute;
+        z-index: 3;
+        /* margin-top: 8px;
+    right: 56px; */
+        top: 65px;
+        right: 10px;
+        background-color: rgba(255, 255, 255, 0.785);
+        border-radius: 13px;
+        color: #f95b06;
+
+    }
+
+    .cta-content h2 {
+        font-size: 40px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        padding: 30px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-group select {
+        min-width: 100%;
+    }
+
+    .section-1 {
+        height: auto;
+    }
+
+    .auth-buttons .btn {
+        padding: 0;
+        border-radius: none;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+
+    .auth-buttons .login {
+        color: #f95b06;
+        border: none;
+        margin-left: 13px;
+    }
+
+    .auth-buttons .signup {
+        background: transparent;
+        color: #f95b06;
+    }
+
+    .traiteurs-list {
+        height: 1370px;
+
+    }
+
+    /* Grille des cartes traiteurs */
+    .traiteurs-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 500px;
+        height: 400px;
+        line-height: 1.6rem;
+        top: 0;
+    }
+
+
+    .traiteur-image {
+        position: relative;
+        width: 45%;
+        height: 200px;
+        flex-shrink: 0;
+    }
+
+    .traiteur-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .years-rating {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+    }
+
+
+}
+
+@media (min-width: 1024px) {
+
+
+    .contact-info {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+  
+
+.contact-info .card {
+    background-color: #FEFBEA;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 15px;
+}
+
+    .card .icone-info {
+        font-size: 30px;
+        padding: 15px;
+        margin-right: 20px;
+    }
+
+    form .form-container {
+        padding: 40px ;
+        margin-top: 0;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    p{
+        font-size: 18px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+    h2{
+        font-size: 32px;
+        font-weight: 900;
+    }
+    .card .icone-info {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+form .form-container .prenom-nom {
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+.prenom, .nom {
+    width: 100%;
+}
+
+}
